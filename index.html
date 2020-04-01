@@ -4,13 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    <style>
+        #seconds{
+            display: none;
+        }
+    </style>    
 </head>
 <body>
-    <audio id="audio" src="audio.mp3"></audio>
-    <video id="video"></video>
-    <canvas id="canvas"></canvas>
+    <div>
+        <audio id="audio" src="audio.mp3"></audio>
+        <video id="video" class="col-4 offset-4"></video>
+        <canvas id="canvas"></canvas>
+    </div>
+    <div class="col-4 offset-md-4" id="seconds">
+        <h1>Seconds: </h1>
+    </div>
 
-
+    <script src=""></script>
     <script src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"> </script>
     <script src="app.js"></script>
 </body>

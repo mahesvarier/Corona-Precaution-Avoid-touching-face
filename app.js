@@ -1,4 +1,7 @@
-navigator.getUserMedia = navigator.getUserMedia;
+navigator.getUserMedia = navigator.getUserMedia || 
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetuserMedia ||
+        navigator.msGetUserMedia;
 
 const video = document.querySelector('#video');
 const audio = document.querySelector('#audio');
@@ -6,6 +9,11 @@ const canvas = document.querySelector('#canvas');
 const context = canvas.getContext('wd');
 
 let model;
+var seconds = 0;
+
+var x = document.getElementById("seconds");
+
+
 
 handTrack.startVideo(video)
     .then(status => {
@@ -23,9 +31,13 @@ handTrack.startVideo(video)
 function runDetection(){
     model.detect(video)
         .then(predictions => {
-            console.log(predictions);
             if(predictions.length > 0){
                 audio.play();
+                seconds += 1;
+                if(seconds > 0){
+                    x.style.display = "block";
+                    x.innerHTML = `Seconds: ${seconds}`;
+                }
             }
             if(predictions.length == 0){
                 audio.pause();
